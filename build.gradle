@@ -36,11 +36,12 @@ dependencies {
     compile 'org.springframework:spring-aspects:4.1.4.RELEASE'
     compile 'org.springframework:spring-aop:4.1.4.RELEASE'
     compile 'javax.servlet:servlet-api:3.0-alpha-1'
-    compile 'javax.servlet.jsp.jstl:jstl:1.2'
     compile 'taglibs:standard:1.1.2'
     compile 'commons-logging:commons-logging:1.2'
     compile 'javax.servlet.jsp:jsp-api:2.2'
     compile 'org.apache.taglibs:taglibs-standard-impl:1.2.5'
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'    
+    compile group: 'javax.servlet.jsp.jstl', name: 'javax.servlet.jsp.jstl-api', version: '1.2.2'
     
     
     
