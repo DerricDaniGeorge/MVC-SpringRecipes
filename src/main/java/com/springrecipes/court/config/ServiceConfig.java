@@ -6,8 +6,6 @@ import com.springrecipes.court.service.ReservationServiceImpl;
 
 @Configuration
 public class ServiceConfig {
-	@Bean
-	public ReservationService reservationService() {
-		return new ReservationServiceImpl();
-	}
+	
+	
 }

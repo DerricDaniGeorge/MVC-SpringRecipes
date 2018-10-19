@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import com.springrecipes.court.beans.Reservation;
 import com.springrecipes.court.beans.Player;
+
 public class ReservationServiceImpl implements ReservationService {
 	public static final SportType TENNIS=new SportType(1,"Tennis");
 	public static final SportType SOCCER=new SportType(2,"Soccer");
