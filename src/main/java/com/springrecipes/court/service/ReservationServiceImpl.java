@@ -1,6 +1,9 @@
 package com.springrecipes.court.service;
 
 import com.springrecipes.court.beans.SportType;
+import java.util.Arrays;
+import com.springrecipes.court.exceptions.ReservationNotAvailableException;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -24,5 +27,16 @@ public class ReservationServiceImpl implements ReservationService {
 			}
 		}
 		return result;
+	}
+	public void make(Reservation reservation) {
+		for(Reservation made:reservations) {
+			if(made.getCourtName().equalsIgnoreCase(reservation.getCourtName())&&made.getDate().equals(reservation.getDate())&&made.getHour()==reservation.getHour()) {
+				throw new ReservationNotAvailableException(reservation.getCourtName(),reservation.getDate(),reservation.getHour());
+			}
+		}
+		reservations.add(reservation);
+	}
+	public List<SportType> getAllSportTypes(){
+		return Arrays.asList(new SportType[] {TENNIS,SOCCER});
 	}
 }

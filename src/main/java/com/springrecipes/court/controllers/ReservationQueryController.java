@@ -16,8 +16,6 @@ public class ReservationQueryController {
 	@Autowired
 	private ReservationService reservationService;
 	
-	
-	
 	@RequestMapping(method=RequestMethod.GET)
 	public void setupForm() {
 	}
@@ -30,5 +28,6 @@ public class ReservationQueryController {
 		}
 		model.addAttribute("reservations",reservations);
 		return "reservationQuery";
-	}  
+	}
+	
 }

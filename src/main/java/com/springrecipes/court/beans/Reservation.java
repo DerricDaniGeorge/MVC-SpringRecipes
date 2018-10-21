@@ -10,6 +10,7 @@ public class Reservation {
 	public void setCourtName(String courtName) {
 		this.courtName = courtName;
 	}
+	public Reservation() {}
 	public Reservation(String courtName, Date date, int hour, Player player, SportType sportType) {
 		super();
 		this.courtName = courtName;
