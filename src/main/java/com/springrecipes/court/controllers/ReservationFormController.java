@@ -1,4 +1,6 @@
 package com.springrecipes.court.controllers;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,12 +43,18 @@ public class ReservationFormController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public String submitForm(@ModelAttribute Reservation reservation,BindingResult result,SessionStatus status) {
-		reservationService.make(reservation);
-		//redirect means, browser will again request to "reservationSuccess"
-		//so there must be a requestMapping in the controller to handle that request, otherwise
-		//we will get http page not found error.
-		return "redirect:reservationForm/reservationSuccess";  
+	public String submitForm(@ModelAttribute @Valid Reservation reservation,BindingResult result,SessionStatus status) {
+		if(result.hasErrors()) {
+			return "reservationForm";
+		}else {
+			reservationService.make(reservation);
+			status.setComplete();
+			//redirect means, browser will again request to "reservationSuccess"
+			//so there must be a requestMapping in the controller to handle that request, otherwise
+			//we will get http page not found error.
+			return "redirect:reservationForm/reservationSuccess";
+		}
+		  
 	}
 	@RequestMapping("reservationSuccess")
 	public String showSuccessPage() {
